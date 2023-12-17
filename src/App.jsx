@@ -14,6 +14,7 @@ function App() {
     <Routes>
         
         <Route path='/' element={<MyForm />} />
+        <Route></Route>
 
 
     </Routes>
