@@ -1,39 +1,34 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const MyForm = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    age: '',
-    gender: '', // Use a single property for gender
-  });
+  
+  const [users, setuser] = useState({})
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
-  };
+  const getUserData = (e)=>{
+    setuser({...users, [e.target.name] : e.target.value})
+    console.log(users);
+  }
+
+  const Handlesubmit = ()=>{
+      dispatch()
+  }
+
+ 
+  
 
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit} className="my-form">
+      <form  className="my-form" onSubmit={Handlesubmit} >
         <label>
           Email:
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
+            onChange={getUserData}
+            
           />
         </label>
         <label>
@@ -41,9 +36,8 @@ const MyForm = () => {
           <input
             type="text"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
+            onChange={getUserData}
+            
           />
         </label>
         <label>
@@ -51,9 +45,8 @@ const MyForm = () => {
           <input
             type="number"
             name="age"
-            value={formData.age}
-            onChange={handleChange}
-            required
+            onChange={getUserData}
+           
           />
         </label>
         <label>
@@ -65,8 +58,9 @@ const MyForm = () => {
                 type="radio"
                 name="gender"
                 value="male"
-                checked={formData.gender === 'male'}
-                onChange={handleChange}
+                onChange={getUserData}
+                
+                
               />
             </label>
             <label>
@@ -75,8 +69,9 @@ const MyForm = () => {
                 type="radio"
                 name="gender"
                 value="female"
-                checked={formData.gender === 'female'}
-                onChange={handleChange}
+                onChange={getUserData}
+                
+              
               />
             </label>
           </div>
