@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { createUser } from '../features/userDetailsSlice';
+import { useNavigate } from 'react-router-dom';
 
 const MyForm = () => {
   
   const [users, setuser] = useState({})
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
 
@@ -12,8 +15,11 @@ const MyForm = () => {
     console.log(users);
   }
 
-  const Handlesubmit = ()=>{
-      dispatch()
+  const Handlesubmit = (e)=>{
+    e.preventDefault();
+    console.log("users...",users);
+      dispatch(createUser(users))
+      navigate("/read")
   }
 
  

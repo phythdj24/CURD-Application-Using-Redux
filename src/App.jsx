@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import MyForm from './components/Form'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Read from './components/Read'
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
     <Routes>
         
         <Route path='/' element={<MyForm />} />
+        <Route path='/read' element={<Read />} />
         
 
 
