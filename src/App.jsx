@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import MyForm from './components/Form'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Router, Route, Routes } from 'react-router-dom'
 import Read from './components/Read'
 
 function App() {
@@ -10,9 +10,10 @@ function App() {
 
   return (
     <>
-     <Navbar />
-    <BrowserRouter>
+       <Navbar />
+   
     <Routes>
+    
         
         <Route path='/' element={<MyForm />} />
         <Route path='/read' element={<Read />} />
@@ -20,7 +21,7 @@ function App() {
 
 
     </Routes>
-    </BrowserRouter>
+    
       
      
     </>
