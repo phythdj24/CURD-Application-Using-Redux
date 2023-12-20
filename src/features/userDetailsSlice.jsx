@@ -73,3 +73,10 @@ export const userDetail = createSlice({
 });
 
 export default userDetail.reducer;
+
+
+
+{/* <div className='Link'>
+<Link className='link1' to="/">Create Post</Link>
+<Link className='link2' to="/read">All Post ({allusers.length}) </Link>
+</div> */}

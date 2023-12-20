@@ -39,11 +39,25 @@ button {
 .nav-links {
   list-style: none;
   display: flex;
+  color: #e96262;
+   
 }
+.link1{
+  color: #ccc;
+}
+.link2{
+  color: #ccc;
+  margin-left: 20px;
+}
+
+
+
 
 .nav-links li {
   margin-right: 10px;
   cursor: pointer;
+  background-color: #e42e2e;
+  
 }
 
 /* Add your styles based on your design */
@@ -94,10 +108,15 @@ button:hover {
 }
 
 h2 {
-  color: #c56161;
+  color: #e96262;
 }
 
 p {
-  color: #666;
+  color: #f0eded;
+}
+.link{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 

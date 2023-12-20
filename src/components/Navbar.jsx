@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
+
+  const allusers = useSelector((state)=> state.app.users)
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -29,7 +32,7 @@ const Navbar = () => {
         </form>
         <ul className="nav-links">
           <li><Link to="/">Create Post</Link></li>
-          <li><Link to="/read">All Post</Link></li>
+          <li><Link to="/read">All Post ({allusers.length}) </Link></li>
          
         </ul>
       </div>
