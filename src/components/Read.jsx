@@ -40,7 +40,7 @@ const Read = () => {
 
        <div className='link'>
          <button onClick={()=> [setId(e.id),setShowPopup(true)]} href="#">View</button>
-         <Link >edit</Link>
+         <Link to={`/edit/${e.id}`} >edit</Link>
          <Link onClick={()=> dispatch(deleteUser(e.id))} >Delete</Link>
          </div>
     </div>
