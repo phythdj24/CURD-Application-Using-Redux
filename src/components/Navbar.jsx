@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const allusers = useSelector((state)=> state.app.users)
+  const allusers = useSelector((state) => state.app.users) || [];
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -14,7 +14,7 @@ const Navbar = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     // Perform search logic here
-    console.log('Search submitted:', searchQuery);
+    console.log("Search submitted:", searchQuery);
   };
 
   return (
@@ -30,11 +30,14 @@ const Navbar = () => {
           />
           <button type="submit">Search</button>
         </form>
-        <ul className="nav-links">
-          <li><Link to="/">Create Post</Link></li>
-          <li><Link to="/read">All Post ({allusers.length}) </Link></li>
-         
-        </ul>
+        <div className="Link">
+          <Link className="link1" to="/">
+            Create Post
+          </Link>
+          <Link className="link2" to="/read">
+            All Post ({allusers.length || 0})
+          </Link>
+        </div>
       </div>
     </nav>
   );
