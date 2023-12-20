@@ -1,5 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { IoIosCloseCircle } from "react-icons/io";
+
 
 const CustomPop = ({id, showPopup,setShowPopup}) => {
 
@@ -11,7 +13,7 @@ const CustomPop = ({id, showPopup,setShowPopup}) => {
   return (
     <div className='popBack'>
         <div className='container'>
-        <button onClick={()=> setShowPopup(false)}>close</button>
+        <button onClick={()=> setShowPopup(false)}> <IoIosCloseCircle /> </button>
         <h2>{singleUser[0].name}</h2>
         <h3>{singleUser[0].email}</h3>
         <h3>{singleUser[0].age}</h3>

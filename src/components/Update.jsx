@@ -35,6 +35,7 @@ const Update = () => {
           onChange={newData}
         
           />
+          <br />
         
         Name:
         <input
@@ -45,18 +46,19 @@ const Update = () => {
         
           
         />
-      </label>
-      <label>
+        <br />
         Age:
         <input
           type="number"
           name="age"
           value={ UpdateData && UpdateData.age}
-          onChange={newData}
-        
+          onChange={newData}  
          
         />
+
+        
       </label>
+
       <label>
         Gender:
         <div>

@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteUser, showUser } from '../features/userDetailsSlice'
 import CustomPop from './CustomPop'
 import { Link } from 'react-router-dom'
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
+
+
 
 const Read = () => {
   const dispatch = useDispatch()
@@ -40,8 +44,8 @@ const Read = () => {
 
        <div className='link'>
          <button onClick={()=> [setId(e.id),setShowPopup(true)]} href="#">View</button>
-         <Link to={`/edit/${e.id}`} >edit</Link>
-         <Link onClick={()=> dispatch(deleteUser(e.id))} >Delete</Link>
+         <Link to={`/edit/${e.id}`} > <button><FaEdit /> </button>  </Link>
+         <Link onClick={()=> dispatch(deleteUser(e.id))} ><button> <MdDeleteForever /> </button></Link>
          </div>
     </div>
       ))
