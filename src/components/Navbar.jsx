@@ -1,23 +1,19 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { searchUser } from "../features/userDetailsSlice";
 
 const Navbar = () => {
   const [searchData, setSearchData] = useState("")
+  const dispatch = useDispatch()
   
 
   const allusers = useSelector((state) => state.app.users) || [];
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Perform search logic here
-    console.log("Search submitted:", searchQuery);
-  };
-
+  useEffect(()=>{
+    dispatch(searchUser(searchData));
+  },[searchData])
+ 
   return (
     <nav>
       <div className="navbar-container">
@@ -29,11 +25,10 @@ const Navbar = () => {
         </Link>
 
 
-        <form onSubmit={handleSearchSubmit} className="search-form">
+        <form  className="search-form">
           <input
             type="text"
             placeholder="Search..."
-            value={searchQuery}
             onChange={(e)=> setSearchData(e.target.value)}
           />
           <button type="submit">Search</button>

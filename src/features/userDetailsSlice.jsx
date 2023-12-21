@@ -66,6 +66,7 @@ export const userDetail = createSlice({
       user: [],
       loading: false,
       error: null,
+      serachData: [],
   },
   reducers: {
       searchUser: (state, action) => {
@@ -135,6 +136,8 @@ export const userDetail = createSlice({
 });
 
 export default userDetail.reducer;
+
+export const {searchUser}= userDetail.actions;
 
 
 

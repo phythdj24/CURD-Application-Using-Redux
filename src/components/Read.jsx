@@ -10,12 +10,13 @@ import { CirclesWithBar } from 'react-loader-spinner'
 
 const Read = () => {
   const dispatch = useDispatch()
+  const [radioData, setRadioData] = useState("");
 
   const [id, setId] = useState()
 
   const [showPopup, setShowPopup] = useState(false)
 
-  const {users , loading} = useSelector((state)=> state.app)
+  const {users , loading, searchData} = useSelector((state)=> state.app)
 
   useEffect(()=>{
       dispatch(showUser())
@@ -45,10 +46,50 @@ const Read = () => {
     <div>
 
    {showPopup && <CustomPop id={id} showPopup={showPopup} setShowPopup={setShowPopup} />}
+   <h2>All data</h2>
+      <input
+        class="form-check-input"
+        name="gender"
+        checked={radioData === ""}
+        type="radio"
+        onChange={(e) => setRadioData("")}
+      />
+      <label class="form-check-label">All</label>
+      <input
+        class="form-check-input"
+        name="gender"
+        checked={radioData === "Male"}
+        value="Male"
+        type="radio"
+        onChange={(e) => setRadioData(e.target.value)}
+      />
+      <label class="form-check-label">Male</label>
+      <input
+        class="form-check-input"
+        name="gender"
+        value="Female"
+        checked={radioData === "Female"}
+        type="radio"
+        onChange={(e) => setRadioData(e.target.value)}
+      />
+      <label class="form-check-label">Female</label>
 
 
     {
-      users && users.map((e)=>(
+      users && users.filter((e)=>{
+        if(searchData.length === ""){
+          return e
+        }else{
+          return e.name.toLowerCase().includes(searchData.toLowerCase())
+        }
+      } ).filter((e)=>{
+        if(radioData ==="Male"){
+          return e.gender === radioData;
+        }else if(radioData === "Female"){
+          return e.gender === radioData;
+        }
+        else return e;
+      }) .map((e)=>(
         <div key={e.id} className='card'>
         <h2>Name:-{e.name}</h2>
          <p>Email:-{e.email}:</p>
