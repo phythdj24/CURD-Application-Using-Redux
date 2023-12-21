@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchData, setSearchData] = useState("")
+  
 
   const allusers = useSelector((state) => state.app.users) || [];
 
@@ -29,13 +30,13 @@ const Navbar = () => {
 
 
         <form onSubmit={handleSearchSubmit} className="search-form">
-          {/* <input
+          <input
             type="text"
             placeholder="Search..."
             value={searchQuery}
-            onChange={handleSearchChange}
+            onChange={(e)=> setSearchData(e.target.value)}
           />
-          <button type="submit">Search</button> */}
+          <button type="submit">Search</button>
         </form>
         <div className="Link">
           <Link className="link1" to="/">
