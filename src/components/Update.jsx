@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Update = () => {
   const { id } = useParams();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const { users, loading } = useSelector((state) => state.app || {});
   const [UpdateData, setUpdateData] = useState();
@@ -19,8 +21,11 @@ const Update = () => {
     }
   }, [id, users]);
 
-  const HandleUpdate = () => {
-    // Implement your update logic here
+  const HandleUpdate = (e) => {
+    e.preventDefault();
+    dispatch(upDateUser(UpdateData))
+    navigate('/read')
+
   };
 
   return (
