@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { CirclesWithBar } from 'react-loader-spinner'
+import { FaFileSignature } from "react-icons/fa6";
 
 
 const Read = () => {
@@ -46,7 +47,7 @@ const Read = () => {
     <div>
 
    {showPopup && <CustomPop id={id} showPopup={showPopup} setShowPopup={setShowPopup} />}
-   <h2>All data</h2>
+   <h2 className='head' >All Data <FaFileSignature />   </h2> 
       <input
         class="form-check-input"
         name="gender"
@@ -58,8 +59,8 @@ const Read = () => {
       <input
         class="form-check-input"
         name="gender"
-        checked={radioData === "Male"}
-        value="Male"
+        checked={radioData === "male"}
+        value="male"
         type="radio"
         onChange={(e) => setRadioData(e.target.value)}
       />
@@ -67,8 +68,8 @@ const Read = () => {
       <input
         class="form-check-input"
         name="gender"
-        value="Female"
-        checked={radioData === "Female"}
+        value="female"
+        checked={radioData === "female"}
         type="radio"
         onChange={(e) => setRadioData(e.target.value)}
       />
@@ -83,15 +84,15 @@ const Read = () => {
           return e.name.toLowerCase().includes(searchData.toLowerCase())
         }
       } ).filter((e)=>{
-        if(radioData ==="Male"){
+        if(radioData ==="male"){
           return e.gender === radioData;
-        }else if(radioData === "Female"){
+        }else if(radioData === "female"){
           return e.gender === radioData;
         }
         else return e;
       }) .map((e)=>(
         <div key={e.id} className='card'>
-        <h2>Name:-{e.name}</h2>
+        <h2 className='title'>Name:-{e.name}</h2>
          <p>Email:-{e.email}:</p>
          <p>Age:-{e.age}</p>
          <p>Gender:-{e.gender}</p>

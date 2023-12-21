@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { searchUser } from "../features/userDetailsSlice";
+import { MdPersonSearch } from "react-icons/md";
+
 
 const Navbar = () => {
   const [searchData, setSearchData] = useState("")
@@ -31,7 +33,7 @@ const Navbar = () => {
             placeholder="Search..."
             onChange={(e)=> setSearchData(e.target.value)}
           />
-          <button type="submit">Search</button>
+          <button className="btn" type="submit"> <MdPersonSearch /> </button>
         </form>
         <div className="Link">
           <Link className="link1" to="/">

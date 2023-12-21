@@ -48,6 +48,7 @@ nav {
 
 .search-form {
   display: flex;
+  justify-content: space-between;
 }
 
 input {
@@ -136,6 +137,8 @@ button:hover {
 
 .card {
   border: 1px solid #ccc;
+  background: rgb(49,50,54);
+background: linear-gradient(90deg, rgba(49,50,54,0.7064950980392157) 15%, rgba(108,150,167,0.6308648459383753) 83%, rgba(6,102,141,1) 100%);
   border-radius: 8px;
   padding: 16px;
   margin: 16px;
@@ -180,11 +183,18 @@ p {
   text-align: center;
   
 }
-
+.btn{
+  background-color: #201d1d;
+  width: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
 /* btn css */
 
 button {
-  background: transparent;
+  background-color: #201d1d;
+  /* background: transparent; */
   position: relative;
   padding: 5px 15px;
   margin-left: 90px;
@@ -234,4 +244,19 @@ button:hover {
 button:hover::before {
   box-shadow: inset 0 0 0 10em rgb(40, 144, 241);
 }
- 
+
+.head{
+  background: rgb(89,102,155);
+background: linear-gradient(90deg, rgba(89,102,155,1) 0%, rgba(108,139,167,0.9698004201680672) 44%, rgba(21,144,145,1) 92%, rgba(6,102,141,1) 100%);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 20px ;
+  border: 2px solid black;
+}
+.title{
+  color: white;
+  font-size: x-large;
+  font-weight: bolder;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
