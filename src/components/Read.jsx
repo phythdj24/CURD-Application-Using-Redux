@@ -5,7 +5,7 @@ import CustomPop from './CustomPop'
 import { Link } from 'react-router-dom'
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-
+import { CirclesWithBar } from 'react-loader-spinner'
 
 
 const Read = () => {
@@ -22,7 +22,20 @@ const Read = () => {
   },[])
 
   if(loading){
-    return <h2>loading...</h2>
+    return   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <CirclesWithBar
+      height="200"
+      width="300"
+      color="red"
+      wrapperStyle={{ margin: 'auto' }}
+      wrapperClass=""
+      visible={true}
+      outerCircleColor="white"
+      innerCircleColor="white"
+      barColor=""
+      ariaLabel='circles-with-bar-loading'
+    />
+  </div>
   }
 
 

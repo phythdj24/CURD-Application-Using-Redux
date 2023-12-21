@@ -46,7 +46,7 @@ const MyForm = () => {
             
           />
         </label>
-        <label>
+        <label className='age'>
           Age:
           <input
             type="number"
@@ -82,7 +82,7 @@ const MyForm = () => {
             </label>
           </div>
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit"> <span>Submit</span></button>
       </form>
     </div>
   );
